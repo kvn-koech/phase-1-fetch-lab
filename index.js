@@ -1,7 +1,13 @@
 function fetchBooks() {
-  // To pass the tests, don't forget to return your fetch!
-  
-}
+     // Return the fetch request so tests can access it
+    return fetch('https://anapioficeandfire.com/api/books')
+      .then(response => response.json()) 
+      .then(booksData => {
+        renderBooks(booksData);  
+      })
+      .catch(error => console.error('Error fetching books:', error));
+  }
+
 
 function renderBooks(books) {
   const main = document.querySelector('main');
